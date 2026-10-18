@@ -1,0 +1,32 @@
+Package: tidymail
+Title: A Tidy, Backend-Independent Interface for Email
+Version: 0.0.0.9000
+Authors@R:
+    person("Ousmane", "Ouedraogo", , "oousmane@proton.me", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6349-4146"))
+Description: Email as data in R. Messages are built with 'build_msg()' and
+    sent with 'send_mail()' over SMTP using 'blastula'. Mailboxes are read
+    with 'fetch_mail()' over IMAP using 'mRpostman' and returned as tibbles
+    that can be filtered, arranged and mutated like any data frame.
+    Attachments are listed in the result and saved with
+    'download_attachments()'. Passwords are kept in the system keychain or
+    read from environment variables, never stored in the objects.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.1.0)
+Imports:
+    blastula,
+    fs,
+    htmltools,
+    mRpostman (>= 3.0.0),
+    tibble
+Suggests:
+    keyring,
+    pingr,
+    testthat (>= 3.2.0),
+    withr
+Config/testthat/edition: 3
