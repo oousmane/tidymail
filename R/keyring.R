@@ -128,10 +128,12 @@ require_keyring <- function() {
 secure_keyring <- function() {
   require_keyring()
   backend <- keyring::default_backend()
-  if (!backend$name %in% c("macos", "wincred", "secret_service")) {
+  native <- c("backend_macos", "backend_wincred", "backend_secret_service")
+  if (!inherits(backend, native)) {
     stop(
-      "A native system keychain is required. Configure macOS Keychain, Windows Credential Manager, ",
-      "or Linux Secret Service; passwords will not be saved to a fallback backend.",
+      "A native system keychain is required. Configure macOS Keychain, ",
+      "Windows Credential Manager, or Linux Secret Service; ",
+      "passwords will not be saved to a fallback backend.",
       call. = FALSE
     )
   }
